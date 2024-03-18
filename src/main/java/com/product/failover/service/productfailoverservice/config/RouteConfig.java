@@ -14,15 +14,15 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 //@Configuration
 public class RouteConfig {
-    /*@Bean
-    public RouterFunction<ServerResponse> productRoute(ProductController controller){
-        return route(GET("/product-failOver-micro-service/{sku}")
-                        .and(accept(MediaType.APPLICATION_JSON)),
-                request -> {
-                    String sku = request.pathVariable("sku");
-                    ResponseEntity<ProductDto> responseEntity = controller.getProductBySku(sku);
-                    return ServerResponse.status(responseEntity.getStatusCode())
-                            .bodyValue(responseEntity.getBody());
-                });
-    }*/
+//    @Bean
+//    public RouterFunction<ServerResponse> productRoute(ProductController controller){
+//        return route(GET("/api/v1/fallback/product/{sku}")
+//                        .and(accept(MediaType.APPLICATION_JSON)),
+//                request -> {
+//                    String sku = request.pathVariable("sku");
+//                    ResponseEntity<ProductDto> responseEntity = controller.getProductBySku(sku);
+//                    return ServerResponse.status(responseEntity.getStatusCode())
+//                            .bodyValue(responseEntity.getBody());
+//                });
+//    }
 }

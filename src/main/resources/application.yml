@@ -3,8 +3,6 @@ server:
 spring:
   application:
     name: product-failOver-micro-service
-  active:
-    profile: local-discovery
   datasource:
     url: jdbc:mysql://localhost:3306/elevatemart
     username: root
