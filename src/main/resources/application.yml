@@ -1,0 +1,20 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: product-failOver-micro-service
+  active:
+    profile: local-discovery
+  datasource:
+    url: jdbc:mysql://localhost:3306/elevatemart
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    jdbc:
+      repositories:
+        enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
