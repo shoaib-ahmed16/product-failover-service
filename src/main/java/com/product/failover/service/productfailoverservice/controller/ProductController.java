@@ -1,13 +1,15 @@
 package com.product.failover.service.productfailoverservice.controller;
 
-import com.product.failover.service.productfailoverservice.exception.ProductNullObjectException;
 import com.product.failover.service.productfailoverservice.dto.ProductDto;
 import com.product.failover.service.productfailoverservice.dto.TaxDto;
+import com.product.failover.service.productfailoverservice.exception.ProductNullObjectException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -15,10 +17,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 @Slf4j
-@RestController("/api/v1/product")
-public class Controller {
-
-
+@Component
+@RequestMapping("/api/v1/product")
+public class ProductController {
     @GetMapping("/{sku}")
     public ResponseEntity<ProductDto> getProductBySku(@PathVariable("sku") String sku){
         log.info("Initiating Product retrieval by SKU: {}", sku);
@@ -38,6 +39,6 @@ public class Controller {
                                 .code("Ind-cgst")
                         .build())))
                 .build();
-        return new ResponseEntity<>(productDto, HttpStatus.OK);
+        return new ResponseEntity<>(productDto,HttpStatus.OK);
     }
 }
