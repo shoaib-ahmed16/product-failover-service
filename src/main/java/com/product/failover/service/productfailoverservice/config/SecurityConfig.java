@@ -4,6 +4,7 @@ package com.product.failover.service.productfailoverservice.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -51,7 +52,8 @@ public class SecurityConfig {
                 })
                 .authorizeHttpRequests(authorize->
                         authorize
-                                .requestMatchers("/swagger-ui*/**","v3/api-docs/**","api/v1/product/{sku}").permitAll())
+                                .requestMatchers("/swagger-ui*/**","v3/api-docs/**").permitAll()
+                                .requestMatchers(HttpMethod.GET,"/product-failOver-micro-service").permitAll())
                 .csrf(csrf->
                         csrf
                             .csrfTokenRequestHandler(requestAttributeHandler)
